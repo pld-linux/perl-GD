@@ -62,6 +62,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README*
+%attr(755,root,root) %{_bindir}/bdf2gdfont.pl
 %{perl_vendorarch}/GD.pm
 %{perl_vendorarch}/GD
 %{perl_vendorarch}/qd.pl
@@ -70,5 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/auto/GD/GD.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/GD/GD.so
 %dir %{perl_vendorlib}/GD
+%{_mandir}/man1/bdf2gdfont.pl.1*
 %{_mandir}/man3/*
 %{_examplesdir}/%{name}-%{version}
