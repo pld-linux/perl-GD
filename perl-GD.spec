@@ -17,6 +17,7 @@ BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRequires:	freetype-devel
 BuildRequires:	gd-devel >= 1.8.3
+BuildRequires:	libjpeg-devel >= 6b
 %requires_eq	perl
 Requires:	%{perl_sitearch}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,7 +33,7 @@ GD - interfejs do biblioteki Gd.
 %patch0 -p1
 
 %build
-perl Makefile.PL
+echo -e "y\ny\ny\n" |perl Makefile.PL
 %{__make} OPTIMIZE="$RPM_OPT_FLAGS"
 
 %install
