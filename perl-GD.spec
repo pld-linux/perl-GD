@@ -6,6 +6,7 @@ Version:	1.32
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
+Group(de):	Entwicklung/Sprachen/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
@@ -34,7 +35,7 @@ GD - interfejs do biblioteki Gd.
 
 %build
 echo -e "y\ny\ny\n" |perl Makefile.PL
-%{__make} OPTIMIZE="$RPM_OPT_FLAGS"
+%{__make} OPTIMIZE="%{!?debug:$RPM_OPT_FLAGS}%{?debug:-O -g}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -45,16 +46,13 @@ install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
 cp -a demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
 
-strip --strip-unneeded $RPM_BUILD_ROOT/%{perl_sitearch}/auto/GD/*.so
-
 (
   cd $RPM_BUILD_ROOT%{perl_sitearch}/auto/GD
   sed -e "s#$RPM_BUILD_ROOT##" .packlist >.packlist.new
   mv -f .packlist.new .packlist
 )
 
-gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
-$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/bdf_scripts/README \
+gzip -9nf $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/bdf_scripts/README \
         ChangeLog README*
 
 %clean
