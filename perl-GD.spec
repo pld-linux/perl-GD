@@ -2,7 +2,7 @@
 Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
-Version:	1.30
+Version:	1.32
 Release:	1
 License:	GPL
 Group:		Development/Languages/Perl
