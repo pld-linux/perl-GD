@@ -3,12 +3,12 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.23
-Release: 2
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
-Patch0:		perl-GD-paths.patch
+Patch0:		%{name}-paths.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.005_03-14
 BuildRequires:	XFree86-devel
@@ -49,7 +49,7 @@ strip --strip-unneeded $RPM_BUILD_ROOT/%{perl_sitearch}/auto/GD/*.so
 (
   cd $RPM_BUILD_ROOT%{perl_sitearch}/auto/GD
   sed -e "s#$RPM_BUILD_ROOT##" .packlist >.packlist.new
-  mv .packlist.new .packlist
+  mv -f .packlist.new .packlist
 )
 
 gzip -9nf $RPM_BUILD_ROOT%{_mandir}/man3/* \
