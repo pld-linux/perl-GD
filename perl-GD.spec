@@ -11,6 +11,7 @@ Release:	2
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
+# Source0-md5:	90025c06e22c91e22588cee1567d3c7c
 Patch0:		%{name}-paths.patch
 Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	gd-devel >= 2.0.5
