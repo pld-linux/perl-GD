@@ -2,17 +2,16 @@
 Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
-Version:	1.33
-Release:	3
+Version:	1.38
+Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
-Patch1:		%{name}-gd2.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
-BuildRequires:	perl >= 5.6
+BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
@@ -31,7 +30,6 @@ GD - interfejs do biblioteki Gd.
 %prep
 %setup -q -n GD-%{version}
 %patch0 -p1
-%patch1 -p1
 
 %build
 echo -e "y\ny\ny\ny\n" |perl Makefile.PL
