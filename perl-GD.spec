@@ -45,8 +45,8 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}/bdf_scripts/README \
-        ChangeLog README*
+gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/bdf_scripts/README \
+	ChangeLog README*
 
 %clean
 rm -rf $RPM_BUILD_ROOT
