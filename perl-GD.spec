@@ -10,7 +10,7 @@ Version:	2.06
 Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
-Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
 Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	gd-devel >= 2.0.5
