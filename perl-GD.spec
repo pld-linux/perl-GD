@@ -16,7 +16,7 @@ Patch1:		%{name}-gif-support.patch
 BuildRequires:	gd-devel >= 2.0.1
 %{!?_without_gif:BuildRequires:	gd-devel(gif)}
 BuildRequires:	perl-devel >= 5.6.1
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRequires:	XFree86-devel
 Requires:	gd >= 2.0.1
 %{!?_without_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
