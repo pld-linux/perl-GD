@@ -6,12 +6,12 @@
 Summary:	GD - Interface to Gd Graphics Library
 Summary(pl):	GD - interfejs do biblioteki graficznej Gd
 Name:		perl-GD
-Version:	2.07
+Version:	2.11
 Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
-# Source0-md5:	7a44d308e082471e824fcbff044d8300
+# Source0-md5:	8a24c811ec77e2de416ba07017d88f1c
 Patch0:		%{name}-paths.patch
 Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	XFree86-devel
