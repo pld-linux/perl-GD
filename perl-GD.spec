@@ -3,7 +3,7 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.23
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
@@ -16,7 +16,7 @@ BuildRequires:	xpm-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRequires:	freetype-devel
-BuildRequires:	gd-devel
+BuildRequires:	gd-devel >= 1.8.3
 %requires_eq	perl
 Requires:	%{perl_sitearch}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
