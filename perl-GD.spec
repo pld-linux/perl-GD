@@ -42,7 +42,7 @@ oraz zapisywanie ich w formacie PNG.
 
 %build
 %{__perl} Makefile.PL </dev/null \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
