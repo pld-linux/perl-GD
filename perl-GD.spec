@@ -3,21 +3,23 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.33
-Release:	2
-License:	GPL
+Release:	3
+License:	Artistic
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-gd2.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.6
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
-BuildRequires:	freetype1-devel
-BuildRequires:	gd-devel >= 1.8.3
+BuildRequires:	freetype-devel >= 2.0
+BuildRequires:	gd-devel >= 2.0.1
 BuildRequires:	libjpeg-devel >= 6b
+BuildRequires:	libtiff-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,9 +31,10 @@ GD - interfejs do biblioteki Gd.
 %prep
 %setup -q -n GD-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
-echo -e "y\ny\ny\n" |perl Makefile.PL
+echo -e "y\ny\ny\ny\n" |perl Makefile.PL
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %install
@@ -40,7 +43,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install UNINST=0 DESTDIR=$RPM_BUILD_ROOT
 
-cp -a demos bdf_scripts \
+cp -fa demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/bdf_scripts/README \
