@@ -4,7 +4,7 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-Summary:	GD - Interface to Gd Graphics Library
+Summary:	GD - interface to Gd graphics library
 Summary(pl):	GD - interfejs do biblioteki graficznej Gd
 Name:		perl-GD
 Version:	2.12
