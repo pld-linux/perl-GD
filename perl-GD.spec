@@ -3,7 +3,7 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.40
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
@@ -30,7 +30,7 @@ echo -e "y\ny\ny\ny\n" |perl Makefile.PL
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_sitelib}/GD}
 
 %{__make} install UNINST=0 DESTDIR=$RPM_BUILD_ROOT
 
@@ -51,5 +51,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitearch}/auto/GD/autosplit.ix
 %{perl_sitearch}/auto/GD/GD.bs
 %attr(755,root,root) %{perl_sitearch}/auto/GD/GD.so
+%dir %{perl_sitelib}/GD
 %{_mandir}/man3/*
 %{_examplesdir}/%{name}-%{version}
