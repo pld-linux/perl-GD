@@ -7,18 +7,18 @@ Summary:	GD - Interface to Gd Graphics Library
 Summary(pl):	GD - interfejs do biblioteki graficznej Gd
 Name:		perl-GD
 Version:	2.01
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-gif-support.patch
 BuildRequires:	gd-devel >= 2.0.1
+%{!?_without_gif:BuildRequires:	gd-devel(gif)}
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	XFree86-devel
-%if %{?_with_tests:1}%{!?_with_tests:0}
-BuildRequires:	perl-Math-Trig
-%endif
+%{!?_without_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -35,9 +35,10 @@ ich w formacie PNG.
 %prep
 %setup -q -n GD-%{version}
 %patch0 -p1
+%{!?_without_gif:%patch1 -p1}
 
 %build
-yes "" | perl Makefile.PL
+perl Makefile.PL </dev/null
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
