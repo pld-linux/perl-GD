@@ -7,7 +7,7 @@ Summary:	GD - Interface to Gd Graphics Library
 Summary(pl):	GD - interfejs do biblioteki graficznej Gd
 Name:		perl-GD
 Version:	2.06
-Release:	1
+Release:	2
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
@@ -16,7 +16,7 @@ Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	gd-devel >= 2.0.5
 %{!?_without_gif:BuildRequires:	gd-devel(gif)}
 BuildRequires:	perl-devel >= 5.6.1
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	XFree86-devel
 Requires:	gd >= 2.0.5
 %{!?_without_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
@@ -40,7 +40,8 @@ oraz zapisywanie ich w formacie PNG.
 %{!?_without_gif:%patch1 -p1}
 
 %build
-%{__perl} Makefile.PL </dev/null
+%{__perl} Makefile.PL </dev/null \
+	INSTALLDIRS=vendor 
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
@@ -49,7 +50,7 @@ oraz zapisywanie ich w formacie PNG.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_sitelib}/GD}
+install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_vendorlib}/GD}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
@@ -64,13 +65,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README*
-%{perl_sitearch}/GD.pm
-%{perl_sitearch}/GD
-%{perl_sitearch}/qd.pl
-%dir %{perl_sitearch}/auto/GD
-%{perl_sitearch}/auto/GD/autosplit.ix
-%{perl_sitearch}/auto/GD/GD.bs
-%attr(755,root,root) %{perl_sitearch}/auto/GD/GD.so
-%dir %{perl_sitelib}/GD
+%{perl_vendorarch}/GD.pm
+%{perl_vendorarch}/GD
+%{perl_vendorarch}/qd.pl
+%dir %{perl_vendorarch}/auto/GD
+%{perl_vendorarch}/auto/GD/autosplit.ix
+%{perl_vendorarch}/auto/GD/GD.bs
+%attr(755,root,root) %{perl_vendorarch}/auto/GD/GD.so
+%dir %{perl_vendorlib}/GD
 %{_mandir}/man3/*
 %{_examplesdir}/%{name}-%{version}
