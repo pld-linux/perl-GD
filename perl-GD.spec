@@ -19,7 +19,7 @@ BuildRequires:	freetype-devel
 BuildRequires:	gd-devel
 %requires_eq	perl
 Requires:	%{perl_sitearch}
-BuildRoot:	/tmp/%{name}-%{version}-root
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GD - Interface to Gd Graphics Library.
