@@ -11,6 +11,7 @@ Release:	2
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
+# Source0-md5:	5327b567ebd804ac4608008c374546f7
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-gif-support.patch
 BuildRequires:	gd-devel >= 2.0.1
