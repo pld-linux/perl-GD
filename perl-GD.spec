@@ -2,21 +2,16 @@
 Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
-Version:	1.38
-Release:	2
+Version:	1.40
+Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
-BuildRequires:	rpm-perlprov >= 3.0.3-16
-BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	XFree86-devel
-BuildRequires:	libpng >= 1.0.8
-BuildRequires:	zlib-devel
-BuildRequires:	freetype-devel >= 2.0
 BuildRequires:	gd-devel >= 2.0.1
-BuildRequires:	libjpeg-devel >= 6b
-BuildRequires:	libtiff-devel
+BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -42,15 +37,14 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -fa demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/bdf_scripts/README \
-	ChangeLog README*
+gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/bdf_scripts/README
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc ChangeLog README*
 %{perl_sitearch}/GD.pm
 %{perl_sitearch}/qd.pl
 %dir %{perl_sitearch}/auto/GD
