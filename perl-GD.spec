@@ -3,8 +3,8 @@
 %bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-Summary:	GD - interface to Gd graphics library
-Summary(pl):	GD - interfejs do biblioteki graficznej Gd
+Summary:	GD - interface to GD graphics library
+Summary(pl):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
 Version:	2.16
 Release:	2
@@ -22,12 +22,12 @@ Provides:	perl-GD(gif) = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-GD.pm is a Perl interface to Thomas Boutell's gd graphics library. GD
+GD.pm is a Perl interface to Thomas Boutell's GD graphics library. GD
 allows you to create color drawings using a large number of graphics
 primitives, and emit the drawings as PNG files.
 
 %description -l pl
-GD.pm jest perlowym interfejsem do biblioteki graficznej gd Thomasa
+GD.pm jest perlowym interfejsem do biblioteki graficznej GD Thomasa
 Boutella. GD pozwala na tworzenie kolorowych rysunków przy u¿yciu
 du¿ej liczby graficznych prymitywów oraz zapisywanie ich w formacie
 PNG.
