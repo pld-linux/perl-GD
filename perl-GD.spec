@@ -18,7 +18,7 @@ Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	XFree86-devel
 BuildRequires:	gd-devel >= 2.0.12
 %{?with_gif:BuildRequires:	gd-devel(gif)}
-BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	gd >= 2.0.12
 %{?with_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
