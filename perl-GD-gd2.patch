@@ -1,0 +1,11 @@
+--- GD-1.33/Makefile.PL.wiget	Fri Jul 13 17:26:03 2001
++++ GD-1.33/Makefile.PL	Fri Jul 13 17:26:41 2001
+@@ -21,7 +21,7 @@
+ 
+ #### no user-serviceable parts below #####
+ 
+-push @LIBS,'-lttf' if $TTF;
++push @LIBS,'-lfreetype' if $TTF;
+ push @LIBS,'-ljpeg' if $JPEG;
+ push @LIBS, '-lm' unless $^O eq 'MSWin32';
+ 
