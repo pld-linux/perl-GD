@@ -3,7 +3,7 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.32
-Release:	1
+Release:	2
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -11,7 +11,7 @@ Group(pl):	Programowanie/Jêzyki/Perl
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
-BuildRequires:	perl >= 5.005_03-14
+BuildRequires:	perl >= 5.6
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
@@ -38,20 +38,14 @@ echo -e "y\ny\ny\n" |perl Makefile.PL
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
+install -d $RPM_BUILD_ROOT%{_exampledir}/%{name}-%{version}
 
 %{__make} install UNINST=0 DESTDIR=$RPM_BUILD_ROOT
 
 cp -a demos bdf_scripts \
-	$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
+	$RPM_BUILD_ROOT%{_exampledir}/%{name}-%{version}
 
-(
-  cd $RPM_BUILD_ROOT%{perl_sitearch}/auto/GD
-  sed -e "s#$RPM_BUILD_ROOT##" .packlist >.packlist.new
-  mv -f .packlist.new .packlist
-)
-
-gzip -9nf $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}/bdf_scripts/README \
+gzip -9nf $RPM_BUILD_ROOT%{_exampledir}/%{name}/bdf_scripts/README \
         ChangeLog README*
 
 %clean
@@ -59,17 +53,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {ChangeLog,README*}.gz
-
+%doc *.gz
 %{perl_sitearch}/GD.pm
 %{perl_sitearch}/qd.pl
-
 %dir %{perl_sitearch}/auto/GD
-%{perl_sitearch}/auto/GD/.packlist
 %{perl_sitearch}/auto/GD/autosplit.ix
 %{perl_sitearch}/auto/GD/GD.bs
 %attr(755,root,root) %{perl_sitearch}/auto/GD/GD.so
-
 %{_mandir}/man3/*
-
-%{_prefix}/src/examples/%{name}
+%{_exampledir}/%{name}-%{version}
