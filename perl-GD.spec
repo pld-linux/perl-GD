@@ -38,14 +38,14 @@ echo -e "y\ny\ny\n" |perl Makefile.PL
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_exampledir}/%{name}-%{version}
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %{__make} install UNINST=0 DESTDIR=$RPM_BUILD_ROOT
 
 cp -a demos bdf_scripts \
-	$RPM_BUILD_ROOT%{_exampledir}/%{name}-%{version}
+	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-gzip -9nf $RPM_BUILD_ROOT%{_exampledir}/%{name}/bdf_scripts/README \
+gzip -9nf $RPM_BUILD_ROOT%{_examplesdir}/%{name}/bdf_scripts/README \
         ChangeLog README*
 
 %clean
@@ -61,4 +61,4 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_sitearch}/auto/GD/GD.bs
 %attr(755,root,root) %{perl_sitearch}/auto/GD/GD.so
 %{_mandir}/man3/*
-%{_exampledir}/%{name}-%{version}
+%{_examplesdir}/%{name}-%{version}
