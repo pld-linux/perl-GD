@@ -40,7 +40,7 @@ echo -e "y\ny\ny\n" |perl Makefile.PL
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install UNINST=1 DESTDIR=$RPM_BUILD_ROOT
 
 cp -a demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_prefix}/src/examples/%{name}
