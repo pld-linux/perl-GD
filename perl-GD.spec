@@ -24,13 +24,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GD.pm is a Perl interface to Thomas Boutell's gd graphics library
-(version 2.01 or higher). GD allows you to create color drawings using
-a large number of graphics primitives, and emit the drawings as PNG
-files.
+(version 2.0.5 or higher). GD allows you to create color drawings
+using a large number of graphics primitives, and emit the drawings as
+PNG files.
 
 %description -l pl
 GD.pm jest perlowym interfejsem do biblioteki graficznej gd Thomasa
-Boutella (w wersji 2.0.1 lub wy¿szej). GD pozwala na tworzenie
+Boutella (w wersji 2.0.5 lub wy¿szej). GD pozwala na tworzenie
 kolorowych rysunków przy u¿yciu du¿ej liczby graficznych prymitywów
 oraz zapisywanie ich w formacie PNG.
 
