@@ -1,3 +1,4 @@
+%include	/usr/lib/rpm/macros.perl
 Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
@@ -7,8 +8,10 @@ Copyright:	GPL
 Group:		Development/Languages/Perl
 Group(pl):	Programowanie/Jêzyki/Perl
 Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/GD/GD-%{version}.tar.gz
-Patch:		perl-GD-paths.patch
-BuildRequires:	perl >= 5.005_03-10
+Patch0:		perl-GD-paths.patch
+Patch1:		perl-GD-reqperl.patch
+BuildRequires:	rpm-perlprov
+BuildRequires:	perl >= 5.005_03-13
 %requires_eq	perl
 Requires:	%{perl_sitearch}
 BuildRoot:	/tmp/%{name}-%{version}-root
@@ -21,11 +24,12 @@ GD - interfejs do biblioteki Gd.
 
 %prep
 %setup -q -n GD-%{version}
-%patch -p1
+%patch0 -p1
+%patch1 -p1
 
 %build
 perl Makefile.PL
-make
+make OPTIMIZE="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
