@@ -3,7 +3,7 @@ Summary:	GD perl module
 Summary(pl):	Modu³ perla GD
 Name:		perl-GD
 Version:	1.32
-Release:	2
+Release:	3
 License:	GPL
 Group:		Development/Languages/Perl
 Group(de):	Entwicklung/Sprachen/Perl
@@ -15,7 +15,7 @@ BuildRequires:	perl >= 5.6
 BuildRequires:	XFree86-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
-BuildRequires:	freetype-devel
+BuildRequires:	freetype1-devel
 BuildRequires:	gd-devel >= 1.8.3
 BuildRequires:	libjpeg-devel >= 6b
 %requires_eq	perl
