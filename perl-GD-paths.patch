@@ -1,0 +1,64 @@
+--- GD-1.19/demos/brushes.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/brushes.pl	Sat Oct  9 21:32:58 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/copies.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/copies.pl	Sat Oct  9 21:33:04 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/fills.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/fills.pl	Sat Oct  9 21:33:09 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/gd_example.cgi	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/gd_example.cgi	Sat Oct  9 21:33:13 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/polys.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/polys.pl	Sat Oct  9 21:33:18 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/shapes.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/shapes.pl	Sat Oct  9 21:33:22 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/demos/transform.pl	Mon Sep 14 22:28:53 1998
++++ GD-1.19.new/demos/transform.pl	Sat Oct  9 21:33:31 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ use GD;
+ 
+--- GD-1.19/qd.pl	Mon Sep 14 22:28:54 1998
++++ GD-1.19.new/qd.pl	Sat Oct  9 21:32:41 1999
+@@ -1,4 +1,4 @@
+-#!/usr/local/bin/perl
++#!/usr/bin/perl
+ 
+ # $Id$
+ 
