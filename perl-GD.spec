@@ -1,6 +1,6 @@
 #
 # Conditional build:
-# _with_tests - perform "make test"
+# _without_tests - do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	GD - Interface to Gd Graphics Library
@@ -14,24 +14,24 @@ Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
 # Source0-md5:	7a44d308e082471e824fcbff044d8300
 Patch0:		%{name}-paths.patch
 Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
-BuildRequires:	gd-devel >= 2.0.5
+BuildRequires:	XFree86-devel
+BuildRequires:	gd-devel >= 2.0.12
 %{!?_without_gif:BuildRequires:	gd-devel(gif)}
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	XFree86-devel
-Requires:	gd >= 2.0.5
+Requires:	gd >= 2.0.12
 %{!?_without_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 GD.pm is a Perl interface to Thomas Boutell's gd graphics library
-(version 2.0.5 or higher). GD allows you to create color drawings
+(version 2.0.12 or higher). GD allows you to create color drawings
 using a large number of graphics primitives, and emit the drawings as
 PNG files.
 
 %description -l pl
 GD.pm jest perlowym interfejsem do biblioteki graficznej gd Thomasa
-Boutella (w wersji 2.0.5 lub wy¿szej). GD pozwala na tworzenie
+Boutella (w wersji 2.0.12 lub wy¿szej). GD pozwala na tworzenie
 kolorowych rysunków przy u¿yciu du¿ej liczby graficznych prymitywów
 oraz zapisywanie ich w formacie PNG.
 
@@ -43,17 +43,17 @@ oraz zapisywanie ich w formacie PNG.
 %build
 %{__perl} Makefile.PL </dev/null \
 	INSTALLDIRS=vendor 
-%{__make} OPTIMIZE="%{rpmcflags}"
+%{__make} \
+	OPTIMIZE="%{rpmcflags}"
 
-%{?_with_tests:%{__make} test}
-# %{__make} test partially fails - reference pictures were generated
-#   by some older version of gd
+%{!?_without_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_vendorlib}/GD}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 cp -fa demos bdf_scripts \
 	$RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
