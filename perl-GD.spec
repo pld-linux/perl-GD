@@ -1,6 +1,7 @@
 #
 # Conditional build:
-# _without_tests - do not perform "make test"
+%bcond_without	gif	# build without GIF support
+%bcond_without	tests	# do not perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	GD - Interface to Gd Graphics Library
@@ -16,11 +17,11 @@ Patch0:		%{name}-paths.patch
 Patch1:		http://downloads.rhyme.com.au/gd/patch_GD_pm_2.041_gif_021110.gz
 BuildRequires:	XFree86-devel
 BuildRequires:	gd-devel >= 2.0.12
-%{!?_without_gif:BuildRequires:	gd-devel(gif)}
+%{?with_gif:BuildRequires:	gd-devel(gif)}
 BuildRequires:	perl-devel >= 5.6.1
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	gd >= 2.0.12
-%{!?_without_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
+%{?with_gif:Provides:	perl-GD(gif) = %{version}-%{release}}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +39,7 @@ oraz zapisywanie ich w formacie PNG.
 %prep
 %setup -q -n GD-%{version}
 %patch0 -p1
-%{!?_without_gif:%patch1 -p1}
+%{?with_gif:%patch1 -p1}
 
 %build
 %{__perl} Makefile.PL </dev/null \
@@ -46,7 +47,7 @@ oraz zapisywanie ich w formacie PNG.
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
-%{!?_without_tests:%{__make} test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
