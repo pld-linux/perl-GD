@@ -40,7 +40,7 @@ oraz zapisywanie ich w formacie PNG.
 %{!?_without_gif:%patch1 -p1}
 
 %build
-perl Makefile.PL </dev/null
+%{__perl} Makefile.PL </dev/null
 %{__make} OPTIMIZE="%{rpmcflags}"
 
 %{?_with_tests:%{__make} test}
