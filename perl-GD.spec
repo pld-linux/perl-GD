@@ -13,7 +13,6 @@ Patch0:		%{name}-paths.patch
 BuildRequires:	rpm-perlprov >= 3.0.3-16
 BuildRequires:	perl >= 5.005_03-14
 BuildRequires:	XFree86-devel
-BuildRequires:	xpm-devel
 BuildRequires:	libpng >= 1.0.8
 BuildRequires:	zlib-devel
 BuildRequires:	freetype-devel
