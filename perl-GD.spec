@@ -15,8 +15,8 @@ Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
 BuildRequires:	XFree86-devel
 BuildRequires:	gd-devel >= 2.0.28
-BuildRequires:	perl-devel >= 1:5.8.0
-BuildRequires:	rpm-perlprov >= 4.1-13
+BuildRequires:	perl-devel >= 5.6.1
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 Requires:	gd >= 2.0.28
 Provides:	perl-GD(gif) = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,8 +37,7 @@ PNG.
 %patch0 -p1
 
 %build
-%{__perl} Makefile.PL </dev/null \
-	INSTALLDIRS=vendor
+%{__perl} Makefile.PL </dev/null
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
@@ -46,7 +45,7 @@ PNG.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_vendorlib}/GD}
+install -d $RPM_BUILD_ROOT{%{_examplesdir}/%{name}-%{version},%{perl_sitelib}/GD}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -62,13 +61,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog README*
-%{perl_vendorarch}/GD.pm
-%{perl_vendorarch}/GD
-%{perl_vendorarch}/qd.pl
-%dir %{perl_vendorarch}/auto/GD
-%{perl_vendorarch}/auto/GD/autosplit.ix
-%{perl_vendorarch}/auto/GD/GD.bs
-%attr(755,root,root) %{perl_vendorarch}/auto/GD/GD.so
-%dir %{perl_vendorlib}/GD
+%{perl_sitearch}/GD.pm
+%{perl_sitearch}/GD
+%{perl_sitearch}/qd.pl
+%dir %{perl_sitearch}/auto/GD
+%{perl_sitearch}/auto/GD/autosplit.ix
+%{perl_sitearch}/auto/GD/GD.bs
+%attr(755,root,root) %{perl_sitearch}/auto/GD/GD.so
+%dir %{perl_sitelib}/GD
 %{_mandir}/man3/*
 %{_examplesdir}/%{name}-%{version}
