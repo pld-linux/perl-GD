@@ -62,15 +62,6 @@
  
  # $Id$
  
-diff -urN GD-1.23/bdf_scripts/cvtbdf.pl GD-1.23.paths/bdf_scripts/cvtbdf.pl
---- GD-1.23/bdf_scripts/cvtbdf.pl	Thu Jul 23 19:38:13 1998
-+++ GD-1.23.paths/bdf_scripts/cvtbdf.pl	Thu Feb 17 17:29:16 2000
-@@ -1,4 +1,4 @@
--#!/usr/local/bin/perl
-+#!/usr/bin/perl
- # Filename     - cvtbdf.pl
- # Author       - Geoff Baysinger (gbaysing@HiWAAY.net)
- # Purpose      - Allows "simple" installation of additional BDF fonts for GD.pm
 diff -urN GD-1.23/demos/truetype_test GD-1.23.paths/demos/truetype_test
 --- GD-1.23/demos/truetype_test	Tue Aug 31 03:25:26 1999
 +++ GD-1.23.paths/demos/truetype_test	Thu Feb 17 17:29:46 2000
