@@ -13,7 +13,6 @@ Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
 # Source0-md5:	84a79a60966b2de61dbf622342e3ee3d
 Patch0:		%{name}-paths.patch
-BuildRequires:	XFree86-devel
 BuildRequires:	gd-devel >= 2.0.28
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
