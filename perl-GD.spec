@@ -12,8 +12,8 @@ License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
 # Source0-md5:	f52ff87ff95a1e5cf42a8ffa08cc3663
-URL:		http://search.cpan.org/dist/GD/
 Patch0:		%{name}-paths.patch
+URL:		http://search.cpan.org/dist/GD/
 BuildRequires:	gd-devel >= 2.0.28
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
