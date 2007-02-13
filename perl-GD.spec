@@ -4,7 +4,7 @@
 #
 %include	/usr/lib/rpm/macros.perl
 Summary:	GD - interface to GD graphics library
-Summary(pl.UTF-8):   GD - interfejs do biblioteki graficznej GD
+Summary(pl.UTF-8):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
 Version:	2.34
 Release:	1
