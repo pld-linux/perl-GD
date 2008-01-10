@@ -40,6 +40,7 @@ PNG.
 %{__perl} Makefile.PL </dev/null \
 	INSTALLDIRS=vendor
 %{__make} \
+	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
