@@ -46,7 +46,7 @@ PNG.
 	INSTALLDIRS=vendor
 %{__make} \
 	CC="%{__cc}" \
-	OPTIMIZE="%{rpmcflags} -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64"
+	OPTIMIZE="%{rpmcflags}"
 
 %{?with_tests:%{__make} test}
 
