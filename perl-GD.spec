@@ -74,7 +74,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/qd.pl
 %dir %{perl_vendorarch}/auto/GD
 %{perl_vendorarch}/auto/GD/autosplit.ix
-%{perl_vendorarch}/auto/GD/GD.bs
 %attr(755,root,root) %{perl_vendorarch}/auto/GD/GD.so
 %dir %{perl_vendorlib}/GD
 %{_mandir}/man1/bdf2gdfont.pl.1*
