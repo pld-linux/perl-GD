@@ -54,14 +54,6 @@
  
  use GD;
  
---- GD-1.19/qd.pl	Mon Sep 14 22:28:54 1998
-+++ GD-1.19.new/qd.pl	Sat Oct  9 21:32:41 1999
-@@ -1,4 +1,4 @@
--#!/usr/local/bin/perl
-+#!/usr/bin/perl
- 
- # $Id$
- 
 diff -urN GD-1.23/demos/truetype_test GD-1.23.paths/demos/truetype_test
 --- GD-1.23/demos/truetype_test	Tue Aug 31 03:25:26 1999
 +++ GD-1.23.paths/demos/truetype_test	Thu Feb 17 17:29:46 2000
