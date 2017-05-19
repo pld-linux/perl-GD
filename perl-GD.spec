@@ -6,14 +6,13 @@
 Summary:	GD - interface to GD graphics library
 Summary(pl.UTF-8):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
-Version:	2.56
-Release:	5
+Version:	2.66
+Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
-# Source0-md5:	c4b3afd98b2c4ce3c2e1027d101a8f1e
+# Source0-md5:	5c89ea8861810ca41bc4aca98e3fdfda
 Patch0:		%{name}-paths.patch
-Patch1:		%{name}-version.patch
 URL:		http://search.cpan.org/dist/GD/
 BuildRequires:	gd-devel >= 2.0.28
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -36,13 +35,7 @@ PNG.
 %prep
 %setup -q -n GD-%{version}
 %patch0 -p1
-%patch1 -p1
 
-# temporarily disable comparison test7 (fails with recent libs)
-%{__sed} -i -e 's/IMAGE_TESTS => 7/IMAGE_TESTS => 6/;s/tests => 11/tests => 10/' t/GD.t
-
-# MakeMaker fails to find it
-%{__mv} lib/GD.xs .
 
 %build
 %{__perl} Makefile.PL </dev/null \
