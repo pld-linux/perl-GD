@@ -16,6 +16,7 @@ Patch0:		%{name}-paths.patch
 URL:		http://search.cpan.org/dist/GD/
 BuildRequires:	gd-devel >= 2.0.28
 BuildRequires:	perl-devel >= 1:5.8.0
+BuildRequires:	perl-ExtUtils-PkgConfig
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	gd >= 2.0.28
 Provides:	perl-GD(gif) = %{version}-%{release}
