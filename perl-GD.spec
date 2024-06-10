@@ -1,16 +1,16 @@
 #
 # Conditional build:
-%bcond_without	tests	# do not perform "make test"
+%bcond_without	tests	# unit tests
 #
 Summary:	GD - interface to GD graphics library
 Summary(pl.UTF-8):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
-Version:	2.76
-Release:	3
+Version:	2.82
+Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
-# Source0-md5:	fb4bacab10ed4f28d52c2aabdaf866bb
+Source0:	https://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
+# Source0-md5:	58037659bd990356a7151a2682763a79
 Patch0:		%{name}-paths.patch
 URL:		https://metacpan.org/dist/GD
 BuildRequires:	gd-devel >= 2.0.28

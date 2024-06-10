@@ -46,15 +46,14 @@
  
  use GD;
  
---- GD-1.19/demos/transform.pl	Mon Sep 14 22:28:53 1998
-+++ GD-1.19.new/demos/transform.pl	Sat Oct  9 21:33:31 1999
+--- GD-2.82/demos/transform.pl.orig	2024-06-10 20:26:58.685864448 +0200
++++ GD-2.82/demos/transform.pl	2024-06-10 20:27:58.688872717 +0200
 @@ -1,4 +1,4 @@
 -#!/usr/local/bin/perl
 +#!/usr/bin/perl
  
  use GD;
- 
-diff -urN GD-1.23/demos/truetype_test GD-1.23.paths/demos/truetype_test
+ use Math::Trig;
 --- GD-1.23/demos/truetype_test	Tue Aug 31 03:25:26 1999
 +++ GD-1.23.paths/demos/truetype_test	Thu Feb 17 17:29:46 2000
 @@ -1,4 +1,4 @@
