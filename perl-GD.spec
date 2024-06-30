@@ -20,6 +20,7 @@ BuildRequires:	perl-ExtUtils-PkgConfig
 %if %{with tests}
 BuildRequires:	perl-Math-Trig
 BuildRequires:	perl-Test-Fork >= 0.02
+BuildRequires:	perl-Test-NoWarnings
 BuildRequires:	perl-Test-Simple >= 0.88
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
