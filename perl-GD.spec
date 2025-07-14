@@ -43,7 +43,7 @@ PNG.
 
 %prep
 %setup -q -n GD-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 
 %build
