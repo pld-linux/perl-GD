@@ -9,7 +9,7 @@ Version:	2.86
 Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
-Source0:	https://www.cpan.org/modules/by-module/GD/GD-%{version}.tar.gz
+Source0:	https://www.cpan.org/modules/by-module/GD/RURBAN/GD-%{version}.tar.gz
 # Source0-md5:	63d57b959643ac9cfa7c20505b7b68e4
 Patch0:		%{name}-paths.patch
 URL:		https://metacpan.org/dist/GD
