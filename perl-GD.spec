@@ -2,6 +2,8 @@
 # Conditional build:
 %bcond_without	tests	# unit tests
 #
+# TODO: 2.4.0 when released (for JXL, UHDR and animated/multi-image files support)
+%define	gd_ver	2.3.3
 Summary:	GD - interface to GD graphics library
 Summary(pl.UTF-8):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
@@ -14,7 +16,7 @@ Source0:	https://www.cpan.org/modules/by-module/GD/RURBAN/GD-%{version}.tar.gz
 Patch0:		%{name}-paths.patch
 Patch1:		%{name}-ft-test.patch
 URL:		https://metacpan.org/dist/GD
-BuildRequires:	gd-devel >= 2.0.28
+BuildRequires:	gd-devel >= %{gd_ver}
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	perl(ExtUtils::Constant) >= 0.22
 BuildRequires:	perl-ExtUtils-PkgConfig
@@ -22,12 +24,12 @@ BuildRequires:	perl-File-Which
 %if %{with tests}
 BuildRequires:	perl-Math-Trig
 BuildRequires:	perl-Test-Fork >= 0.02
-BuildRequires:	perl-Test-NoWarnings
+BuildRequires:	perl-Test-NoWarnings >= 1.00
 BuildRequires:	perl-Test-Simple >= 0.88
 %endif
 BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	rpmbuild(macros) >= 1.745
-Requires:	gd >= 2.0.28
+Requires:	gd%{?_isa} >= %{gd_ver}
 Provides:	perl-GD(gif) = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -51,11 +53,14 @@ PNG.
 %build
 %{__perl} Makefile.PL </dev/null \
 	INSTALLDIRS=vendor
+
 %{__make} \
 	CC="%{__cc}" \
 	OPTIMIZE="%{rpmcflags}"
 
-%{?with_tests:%{__make} test}
+%if %{with tests}
+%{__make} test
+%endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -83,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/GD
 %dir %{perl_vendorarch}/auto/GD
 %{perl_vendorarch}/auto/GD/autosplit.ix
-%attr(755,root,root) %{perl_vendorarch}/auto/GD/GD.so
+%{perl_vendorarch}/auto/GD/GD.so
 %dir %{perl_vendorlib}/GD
 %{_mandir}/man1/bdf2gdfont.pl.1*
 %{_mandir}/man3/GD*.3pm*
