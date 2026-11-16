@@ -5,13 +5,14 @@
 Summary:	GD - interface to GD graphics library
 Summary(pl.UTF-8):	GD - interfejs do biblioteki graficznej GD
 Name:		perl-GD
-Version:	2.86
+Version:	2.91
 Release:	1
 License:	Artistic
 Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/GD/RURBAN/GD-%{version}.tar.gz
-# Source0-md5:	63d57b959643ac9cfa7c20505b7b68e4
+# Source0-md5:	e2089106c01d44495119b61bee388a5b
 Patch0:		%{name}-paths.patch
+Patch1:		%{name}-ft-test.patch
 URL:		https://metacpan.org/dist/GD
 BuildRequires:	gd-devel >= 2.0.28
 BuildRequires:	perl-devel >= 1:5.8.0
@@ -44,6 +45,7 @@ PNG.
 %prep
 %setup -q -n GD-%{version}
 %patch -P0 -p1
+%patch -P1 -p1
 
 
 %build
